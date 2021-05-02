@@ -1,0 +1,16 @@
+version: "1.0"
+
+services: 
+    db:
+        container_name: dbmongo
+        image: mongo
+        restart: unless-stopped
+        env_file: .env    
+                environment: 
+                    MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+                    MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+                        ports: 
+                            27017:27017
+                volumes: 
+                    ./tsmongoapidata:/data/db
+                
